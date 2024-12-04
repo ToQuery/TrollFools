@@ -56,6 +56,10 @@ jobs:
           ref: master
           path: ${{ env.THEOS }}/sdks
 
+      - name: Output all environment variables 1
+        run: |
+          printenv
+
       - name: Build Packages
         run: |
           make package
@@ -69,6 +73,10 @@ jobs:
           path: |
             *.tipa
             *.dSYM
+
+      - name: Output all environment variables 2
+        run: |
+          printenv
 
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
